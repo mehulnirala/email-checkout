@@ -1,6 +1,4 @@
-import axios from "axios";
-import * as C from "./constants";
-import {makeRequest} from './utilities';
+import { makeRequest } from './utilities';
 
 export interface ICheckoutData {
     amount?: number;
@@ -10,19 +8,34 @@ export interface ICheckoutData {
 
 }
 
+export async function getCustomersList() {
+    return await makeRequest('GET', `/v1/customers`, {});
+}
+
+export async function getPaymentMethods(data: ICheckoutData) {
+    return await makeRequest('GET', `/v1/payment_methods/country?country=${data.country}&currency=${data.currency}`, {});
+}
+
 export async function createCheckout(data: ICheckoutData){
     try {
         const body = {
             "amount": data.amount,
-            "complete_payment_url": "/complete",
+            "complete_payment_url": "http://example.com/complete",
             "country": data.country,
             "currency": data.currency,
-            "error_payment_url": "/error",
-            "merchant_reference_id": "0912-2021",
+            "customer": "cus_3196e7d011322b73f31adfeb673b23fd",
+            "error_payment_url": "http://example.com/error",
+            "merchant_reference_id": "950ae8c6-78",
+            "cardholder_preferred_currency": true,
             "language": "en",
             "metadata": {
                 "merchant_defined": true
-            }
+            },
+            "payment_method_types_include": [
+                "in_visa_credit_card"
+            ],
+            "expiration": 1665296061,
+            "payment_method_types_exclude": []
         }
         const result = await makeRequest('POST', '/v1/checkout', body);
     
