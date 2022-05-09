@@ -10,6 +10,7 @@ import { Checkout } from "./Checkout";
 export interface AppProps {
   title: string;
   isOfficeInitialized: boolean;
+  data: Object;
 }
 
 export interface AppState {
@@ -64,6 +65,7 @@ export default class App extends React.Component<AppProps, AppState> {
 
     return (
       <div className="ms-welcome">
+        Welcome {JSON.stringify(this.props.data, null, 2)}
         <Checkout checkoutId={"checkout_c4b2d7e5c0a70404e698c028df801e34"} />
       </div>
     );
