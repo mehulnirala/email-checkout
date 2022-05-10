@@ -1,9 +1,6 @@
 import * as React from "react";
-import { DefaultButton } from "@fluentui/react";
-import Header from "./Header";
-import HeroList, { HeroListItem } from "./HeroList";
+import ItemsList from "./ItemsList";
 import Progress from "./Progress";
-import { Checkout } from "./Checkout";
 
 /* global require */
 
@@ -14,7 +11,6 @@ export interface AppProps {
 }
 
 export interface AppState {
-  listItems: HeroListItem[];
 }
 
 export default class App extends React.Component<AppProps, AppState> {
@@ -66,7 +62,8 @@ export default class App extends React.Component<AppProps, AppState> {
     return (
       <div className="ms-welcome">
         Welcome {JSON.stringify(this.props.data, null, 2)}
-        <Checkout checkoutId={"checkout_c4b2d7e5c0a70404e698c028df801e34"} />
+        <ItemsList />
+        {/* <Checkout checkoutId={"checkout_c4b2d7e5c0a70404e698c028df801e34"} /> */}
       </div>
     );
   }
