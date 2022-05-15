@@ -6,7 +6,6 @@ import { useTheme } from "@mui/material/styles";
 import Zoom from "@mui/material/Zoom";
 import * as React from "react";
 import Item from "./Item";
-import initItems from "./items";
 
 const fabStyle = {
   position: "absolute",
@@ -15,7 +14,7 @@ const fabStyle = {
 };
 
 export default function ItemsList(props: any) {
-  const [items, setItems] = React.useState(initItems);
+  const [items, setItems] = React.useState(props.orderDetails);
 
   const theme = useTheme();
   const transitionDuration = {
@@ -23,9 +22,9 @@ export default function ItemsList(props: any) {
     exit: theme.transitions.duration.leavingScreen
   };
 
-  const handleToggle = (index: number) => () => {
-    const newItems = items;
-    newItems[index].selected = !newItems[index].selected;
+  const handleToggle = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
+    const newItems = [...items];
+    newItems[index].selected = event.target.checked;
     setItems(newItems);
     props.setOrderDetails(newItems);
   };
@@ -54,7 +53,7 @@ export default function ItemsList(props: any) {
       >
         <List>
           {items.map((e, i) => (
-            <Item {...e} handleToggle={handleToggle(i)} />
+            <Item key={i} {...e} handleToggle={(e) => handleToggle(e, i)} />
           ))}
         </List>
       </Slide>

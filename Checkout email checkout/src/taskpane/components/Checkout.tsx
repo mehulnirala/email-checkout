@@ -1,26 +1,24 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { getCheckoutObject } from "../utilities";
 
 export default function Checkout(props: any) {
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
-    // const RapydCheckoutToolkit = (window as any).RapydCheckoutToolkit;
-    //     let checkout = new RapydCheckoutToolkit({
-    //       pay_button_text: "Pay Now",
-    //       pay_button_color: "#4BB4D2",
-    //       id: props.checkoutId, // your checkout page id goes here
-    //       style: {
-    //         submit: {
-    //           base: {
-    //             color: "white"
-    //           }
-    //         }
-    //       }
-    //     });
-    //     checkout.displayCheckout();
+    setLoading(true);
+    getCheckoutObject(props.orderDetails).then((checkout) => {
+      checkout.displayCheckout();
+      setLoading(false);
+    }).catch((err) => {
+      console.error(err);
+      setLoading(false);
+    })
   }, []);
+  console.log(loading)
 
   return (
     <div className="container">
       <div className="row justify-content-center">
+        {loading ? "Loading": ""}
         <div className="col" id="rapyd-checkout"></div>
       </div>
     </div>

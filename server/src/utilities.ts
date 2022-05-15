@@ -35,6 +35,10 @@ export async function makeRequest(method: any, urlPath: any, body: any) {
     }
 }
 
+export function getHexKey(data: any[]){
+    return data.sort().join();
+}
+
 function sign(method: string, urlPath: any, salt: string, timestamp: number, body: null) {
     const accessKey = process.env.RAPYD_ACCESS_KEY;
     const secretKey: string | undefined = process.env.RAPYD_SECRET_KEY;

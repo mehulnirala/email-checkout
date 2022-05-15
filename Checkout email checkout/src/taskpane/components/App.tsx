@@ -1,5 +1,6 @@
 import * as React from "react";
-import ItemsList from "./ItemsList";
+import Header from "./Header";
+import Nav from "./Nav";
 import Progress from "./Progress";
 
 /* global require */
@@ -61,9 +62,8 @@ export default class App extends React.Component<AppProps, AppState> {
 
     return (
       <div className="ms-welcome">
-        Welcome {JSON.stringify(this.props.data, null, 2)}
-        <ItemsList />
-        {/* <Checkout checkoutId={"checkout_c4b2d7e5c0a70404e698c028df801e34"} /> */}
+        <Header />
+        <Nav data={this.props.data}/>
       </div>
     );
   }

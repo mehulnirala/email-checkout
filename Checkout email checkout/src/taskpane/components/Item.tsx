@@ -61,10 +61,10 @@ export default function Item(props: any) {
           </Grid>
           <Grid item sm>
             <Checkbox
-              value={props.selected}
+              checked={props.selected}
               icon={<AddCircleOutlineIcon />}
               checkedIcon={<CheckCircleIcon />}
-              onClick={props.handleToggle}
+              onChange={props.handleToggle}
             />
           </Grid>
         </Grid>
