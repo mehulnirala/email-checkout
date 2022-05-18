@@ -31,8 +31,7 @@ export async function createCheckout(data: ICheckoutData){
         }
         const result = await makeRequest('POST', '/v1/checkout', body);
     
-        console.log(result);
-        return result;
+        return (result as any).body.data;
       } catch (error) {
         console.error('Error completing request', error);
       }

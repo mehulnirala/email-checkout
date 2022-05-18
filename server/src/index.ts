@@ -28,7 +28,7 @@ app.post('/', (req: Request, res: Response) => {
 
 app.post('/checkout', (req: Request, res: Response) => {
   openCheckout(req.body).then((checkoutId: string|undefined) => {
-    res.send({checkoutId})
+    res.send(JSON.stringify({checkoutId}))
   }).catch((error) => res.send(error));
 });
 

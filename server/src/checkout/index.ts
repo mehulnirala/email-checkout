@@ -19,10 +19,9 @@ export async function openCheckout(data: any) {
         currency: 'INR',
         customerId: data.customerId ? data.customerId: 'cus_3196e7d011322b73f31adfeb673b23fd'
     }
-    console.log(checkoutData);
     const result: any = await createCheckout(checkoutData);
-    cache[key] = result.checkoutId;
-    return result.checkoutId;
+    cache[key] = result.id;
+    return result.id;
 }
 
 export async function closeCheckout(data: any) {
