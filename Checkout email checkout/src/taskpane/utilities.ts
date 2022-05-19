@@ -3,7 +3,6 @@ const SERVER_URL = "http://localhost:5000";
 
 export async function getCheckoutObject(data: any) {
     const response = await axios.post(`${SERVER_URL}/checkout`, data, { headers: { "Content-Type": "application/json" } });
-    console.log('debug ', response)
     const checkoutId = await response.data.checkoutId;
     return getRapydToolKitCheckout(checkoutId);
 }
@@ -15,6 +14,12 @@ function getRapydToolKitCheckout(checkoutId: string) {
         pay_button_color: "#4BB4D2",
         id: checkoutId, // your checkout page id goes here
         style: {
+            content: {
+                base: {
+                    width: '100px'
+                }
+            },
+            
             submit: {
                 base: {
                     color: "white"
@@ -22,21 +27,25 @@ function getRapydToolKitCheckout(checkoutId: string) {
             }
         }
     });
-    addEventListeners();
     return checkout;
 }
 
-function addEventListeners() {
+export function addEventListeners(paymentSuccessCallback: (data: any) => void, paymentFailureCallback: (data: any) => void) {
     (window).addEventListener('onCheckoutPaymentSuccess', (event: any) => {
-        console.log(event.detail);
-        axios.post(`${SERVER_URL}/close-checkout`, event.detail, { headers: { "Content-Type": "application/json" } });
+        console.log('onCheckoutPaymentSuccess', event.detail);
+        axios.post(`${SERVER_URL}/close-checkout`, event.detail, { headers: { "Content-Type": "application/json" } })
+        paymentSuccessCallback(event.detail)
     });
 
     (window).addEventListener('onCheckoutFailure', (event: any) => {
-        console.log(event.detail.error);
+        console.log('onCheckoutFailure', event.detail.error);
+        paymentFailureCallback(event.detail);
     });
 
     (window).addEventListener('onLoading', (event: any) => {
-        console.log(event.detail.error);
+        console.log('onLoading', event.detail);
+        setTimeout(() => {
+            // (document.getElementsByTagName('iframe')[0] as any).contentWindow.location.reload(true);
+          }, 2000)
     });
 }

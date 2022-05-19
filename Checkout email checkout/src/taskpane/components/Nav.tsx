@@ -80,11 +80,7 @@ export default function Nav(props: any) {
   const steps = ["Cart items", "Checkout", "Order Details"];
   console.log(props);
   const [orderDetails, setOrderDetails] = React.useState(initItems);
-  const components = [
-    <ItemsList setOrderDetails={setOrderDetails} orderDetails={orderDetails}/>,
-    <Checkout orderDetails={orderDetails.filter((e) => e.selected)} />,
-    <Summary orderDetails={orderDetails.filter((e) => e.selected)} />
-  ];
+  
 
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -109,14 +105,20 @@ export default function Nav(props: any) {
     setActiveStep(step);
   };
 
+  const components = [
+    <ItemsList setOrderDetails={setOrderDetails} orderDetails={orderDetails}/>,
+    <Checkout orderDetails={orderDetails.filter((e) => e.selected)} goToNext={handleNext}/>,
+    <Summary orderDetails={orderDetails.filter((e) => e.selected)} />
+  ];
+  
   return (
     <Box>
-      <Box sx={{ height: "450px" }}>
+      <Box>
         {allStepsCompleted() ? (
           <Rating />
         ) : (
           <React.Fragment>
-            <Box
+            {activeStep===0?<Box
               sx={{
                 width: "100%",
                 height: "100px",
@@ -127,7 +129,7 @@ export default function Nav(props: any) {
                   opacity: [0.9, 0.8, 0.7]
                 }
               }}
-            ></Box>
+            ></Box> : ""}
             {components[activeStep]}
           </React.Fragment>
         )}

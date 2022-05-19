@@ -23,14 +23,14 @@ export default function Item(props: any) {
         sx={{
           p: 0,
           paddingTop: 1,
-          width: 320,
+          width: 420,
           margin: "auto",
           backgroundColor: (theme) =>
             theme.palette.mode === "dark" ? "#1A2027" : "#fff"
         }}
       >
         <Grid container spacing={0}>
-          <Grid item sm>
+          <Grid item >
             <Img
               sx={{ width: 100, height: 100 }}
               alt="complex"
