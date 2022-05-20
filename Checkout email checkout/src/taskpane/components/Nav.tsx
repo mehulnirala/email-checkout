@@ -14,6 +14,7 @@ import Rating from "./Rating";
 import Checkout from "./Checkout";
 import Summary from "./Summary";
 import initItems from "./items";
+import { getInvokedSelection } from "../utilities";
 
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -78,9 +79,7 @@ function QontoStepIcon(props: StepIconProps) {
 
 export default function Nav(props: any) {
   const steps = ["Cart items", "Checkout", "Order Details"];
-  console.log(props);
-  const [orderDetails, setOrderDetails] = React.useState(initItems);
-  
+  const [orderDetails, setOrderDetails] = React.useState(getInvokedSelection(initItems, props.data));
 
   const [activeStep, setActiveStep] = React.useState(0);
 

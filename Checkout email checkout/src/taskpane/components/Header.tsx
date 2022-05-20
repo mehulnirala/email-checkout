@@ -110,7 +110,7 @@ const ResponsiveAppBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title={Office.context.mailbox.userProfile.displayName}>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt={Office.context.mailbox.userProfile.displayName} src="/static/images/avatar/2.jpg" />
               </IconButton>

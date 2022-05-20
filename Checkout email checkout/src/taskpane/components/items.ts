@@ -4,8 +4,8 @@ const items = [
     url:
       "https://github.com/TheAlphamerc/flutter_ecommerce_app/raw/master/assets/small_tilt_shoe_1.png",
     name: "NIKE W AIR MAX 200",
-    price: 129,
-    oldPrice: 240,
+    price: 3999,
+    oldPrice: 8999,
     color: "🟠",
     selected: false
   },
@@ -14,8 +14,8 @@ const items = [
     url:
       "https://github.com/TheAlphamerc/flutter_ecommerce_app/raw/master/assets/small_tilt_shoe_3.png",
     name: "NIKE AIR MAX 97",
-    price: 79,
-    oldPrice: 190,
+    price: 3499,
+    oldPrice: 9999,
     color: "🟢",
     selected: false
   },
@@ -24,8 +24,8 @@ const items = [
     url:
       "https://github.com/TheAlphamerc/flutter_ecommerce_app/raw/master/assets/small_tilt_shoe_2.png",
     name: "NIKE AIR MAX 260",
-    price: 99,
-    oldPrice: 220,
+    price: 6799,
+    oldPrice: 12999,
     color: "🟤",
     selected: false
   }

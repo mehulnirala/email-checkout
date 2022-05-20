@@ -243,7 +243,7 @@
                                 {
                                     "type": "TextBlock",
                                     "id": "9d1870b-42a3-b0d9-85bd-0c1275085158",
-                                    "text": "***$ 129.00*** ~~*$ 240.00*~~",
+                                    "text": "***₹ 3999*** ~~*₹ 8999*~~",
                                     "wrap": true,
                                     "spacing": "None"
                                 }
@@ -268,7 +268,7 @@
                                             "addInId": "cf2510e8-5792-4e7c-987d-70cce5b5d202",
                                             "desktopCommandId": "msgReadOpenPaneButton",
                                             "initializationContext": {
-                                                "$data": "",
+                                                "id": "dbb6d6c-92de-3847-c52c-19b50a2b1e35",
                                                 "data": []
                                             }
                                         }
@@ -367,7 +367,7 @@
                                 {
                                     "type": "TextBlock",
                                     "id": "adc185f0-5033-295d-a76d-0073cf991dcb",
-                                    "text": "***$ 79.00*** ~~*$ 190.00*~~",
+                                    "text": "***₹ 3499*** ~~*₹ 9999*~~",
                                     "wrap": true,
                                     "spacing": "None"
                                 }
@@ -392,7 +392,7 @@
                                             "addInId": "cf2510e8-5792-4e7c-987d-70cce5b5d202",
                                             "desktopCommandId": "msgReadOpenPaneButton",
                                             "initializationContext": {
-                                                "$data": "",
+                                                "id": "000601e7-86c2-ad01-8a93-b0302cfeb022",
                                                 "data": []
                                             }
                                         }
@@ -493,7 +493,7 @@
                                 {
                                     "type": "TextBlock",
                                     "id": "d9ca2d61-b3d4-1893-e237-4e869a151331",
-                                    "text": "***$ 99.00*** ~~*$ 220.00*~~",
+                                    "text": "***₹ 6799*** ~~*₹ 12999*~~",
                                     "wrap": true,
                                     "spacing": "None"
                                 }
@@ -518,7 +518,7 @@
                                             "addInId": "cf2510e8-5792-4e7c-987d-70cce5b5d202",
                                             "desktopCommandId": "msgReadOpenPaneButton",
                                             "initializationContext": {
-                                                "$data": "",
+                                                "id": "592bf5be-613f-0a59-37dd-7f081d4b54ce",
                                                 "data": []
                                             }
                                         }

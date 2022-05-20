@@ -49,3 +49,15 @@ export function addEventListeners(paymentSuccessCallback: (data: any) => void, p
           }, 2000)
     });
 }
+
+export function getInvokedSelection(items, selection){
+    if(!items) return [];
+    if(!selection || !selection.id) return items;
+
+    for(let i=0;i<items.length; i++){
+        if(items[i].id==selection.id){
+            items[i].selected=true;
+        }
+    }
+    return items;
+}
