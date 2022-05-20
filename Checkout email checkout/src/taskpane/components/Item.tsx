@@ -49,8 +49,8 @@ export default function Item(props: any) {
               size="small"
             />
             <Typography variant="subtitle2" component="div">
-              <b style={{ fontSize: "16px" }}>$ {props.price}.00</b>{" "}
-              <s> ${props.oldPrice}.00 </s>
+              <b style={{ fontSize: "16px" }}>₹ {props.price}</b>{" "}
+              <s> ₹ {props.oldPrice} </s>
             </Typography>
             <Stack direction="row" sx={{ alignItems: "center" }} spacing={3}>
               <Typography variant="body2">Color {props.color}</Typography>
