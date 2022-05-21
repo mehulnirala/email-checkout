@@ -110,6 +110,8 @@ export default function Nav(props: any) {
     <Summary orderDetails={orderDetails.filter((e) => e.selected)} />
   ];
   
+  const selected = orderDetails.filter((e) => e.selected).length;
+  const numItems = selected > 0 && activeStep === 0 ? ` (${selected} item${selected>1?'s':''})`: '';
   return (
     <Box>
       <Box>
@@ -138,6 +140,22 @@ export default function Nav(props: any) {
           <></>
         ) : (
           <React.Fragment>
+            <Box sx={{ display: "flex", flexDirection: "row", p: 2 }}>
+              <Button
+                color="inherit"
+                disabled={activeStep === 0}
+                onClick={handleBack}
+                variant="outlined"
+                sx={{ mr: 1 }}
+              >
+                Back
+              </Button>
+              <Box sx={{ flex: "1 1 auto" }} />
+              <Button onClick={handleNext} sx={{ mr: 1 }} variant="contained">
+                {activeStep >= totalSteps() - 1 ? "Finish" : `Next ${numItems}`}
+              </Button>
+            </Box>
+            <br/> <br /> <br />
             <Stepper
               alternativeLabel
               activeStep={activeStep}
@@ -154,21 +172,6 @@ export default function Nav(props: any) {
                 </Step>
               ))}
             </Stepper>
-            <Box sx={{ display: "flex", flexDirection: "row", p: 2 }}>
-              <Button
-                color="inherit"
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                variant="outlined"
-                sx={{ mr: 1 }}
-              >
-                Back
-              </Button>
-              <Box sx={{ flex: "1 1 auto" }} />
-              <Button onClick={handleNext} sx={{ mr: 1 }} variant="contained">
-                {activeStep >= totalSteps() - 1 ? "Finish" : "Next"}
-              </Button>
-            </Box>
           </React.Fragment>
         )}
       </Box>
