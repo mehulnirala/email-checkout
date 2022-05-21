@@ -5,9 +5,9 @@
   <ProviderName>Nirala</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Checkout email checkout"/>
-  <Description DefaultValue="A template to get started."/>
-  <IconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
-  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-128.png"/>
+  <Description DefaultValue="Creates a checkout panel."/>
+  <IconUrl DefaultValue="https://localhost:3000/assets/Pega.png"/>
+  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/Pega.png"/>
   <SupportUrl DefaultValue="https://www.contoso.com/help"/>
   <AppDomains>
     <AppDomain>https://www.contoso.com</AppDomain>
@@ -80,7 +80,7 @@
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GroupLabel" DefaultValue="Rapyd checkout"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Checkout Taskpane"/>
+        <bt:String id="TaskpaneButton.Label" DefaultValue="Pegasus"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Opens a pane displaying checkout."/>

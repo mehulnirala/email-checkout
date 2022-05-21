@@ -1,4 +1,4 @@
-import MenuIcon from "@mui/icons-material/Menu";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import AppBar from "@mui/material/AppBar";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
@@ -50,7 +50,7 @@ const ResponsiveAppBar = () => {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <ShoppingCartIcon />
             </IconButton>
             <Menu
               id="menu-appbar"

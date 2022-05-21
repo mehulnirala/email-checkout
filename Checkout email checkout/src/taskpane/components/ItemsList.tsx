@@ -1,9 +1,6 @@
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import Fab from "@mui/material/Fab";
 import List from "@mui/material/List";
 import Slide from "@mui/material/Slide";
 import { useTheme } from "@mui/material/styles";
-import Zoom from "@mui/material/Zoom";
 import * as React from "react";
 import Item from "./Item";
 
@@ -31,18 +28,6 @@ export default function ItemsList(props: any) {
 
   return (
     <div>
-      <Zoom
-        in={true}
-        timeout={transitionDuration}
-        style={{
-          transitionDelay: `${transitionDuration.exit}ms`,
-          right: 0
-        }}
-      >
-        <Fab sx={fabStyle} aria-label={"checkout"} color={"secondary"}>
-          <ShoppingCartIcon />
-        </Fab>
-      </Zoom>
       <Slide
         in={true}
         timeout={transitionDuration}

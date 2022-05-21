@@ -133,27 +133,27 @@ export default function Nav(props: any) {
           </React.Fragment>
         )}
       </Box>
-      <Stepper
-        alternativeLabel
-        activeStep={activeStep}
-        connector={<QontoConnector />}
-      >
-        {steps.map((label, index) => (
-          <Step key={label} completed={index < activeStep}>
-            <StepLabel
-              StepIconComponent={QontoStepIcon}
-              onClick={handleStep(index)}
-            >
-              {label}
-            </StepLabel>
-          </Step>
-        ))}
-      </Stepper>
       <Box>
         {allStepsCompleted() ? (
           <></>
         ) : (
           <React.Fragment>
+            <Stepper
+              alternativeLabel
+              activeStep={activeStep}
+              connector={<QontoConnector />}
+            >
+              {steps.map((label, index) => (
+                <Step key={label} completed={index < activeStep}>
+                  <StepLabel
+                    StepIconComponent={QontoStepIcon}
+                    onClick={handleStep(index)}
+                  >
+                    {label}
+                  </StepLabel>
+                </Step>
+              ))}
+            </Stepper>
             <Box sx={{ display: "flex", flexDirection: "row", p: 2 }}>
               <Button
                 color="inherit"
