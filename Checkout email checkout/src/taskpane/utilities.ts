@@ -1,5 +1,7 @@
 import axios from "axios";
-const SERVER_URL = "https://email-checkout.herokuapp.com" // "http://localhost:5000";
+
+const debug = false;
+const SERVER_URL = debug ? "http://localhost:5000" : "https://email-checkout.herokuapp.com";
 
 export async function getCheckoutObject(data: any) {
   const response = await axios.post(`${SERVER_URL}/checkout`, data, {
