@@ -21,7 +21,7 @@
                 {
                   "type": "Image",
                   "id": "0f1bd522-ef75-3f9f-14c4-4ef9e234721f",
-                  "url": "https://pngimg.com/uploads/pegasus/pegasus_PNG13.png",
+                  "url": "https://email-checkout.herokuapp.com/assets/Pega.png",
                   "size": "Small",
                   "altText": "Pegasus Avatar",
                   "style": "Person"
@@ -171,7 +171,7 @@
                 {
                   "type": "Image",
                   "id": "dbb6d6c-92de-3847-c52c-19b50a2b1e35",
-                  "url": "https://github.com/TheAlphamerc/flutter_ecommerce_app/raw/master/assets/small_tilt_shoe_1.png",
+                  "url": "https://email-checkout.herokuapp.com/assets/small_tilt_shoe_1.png",
                   "spacing": "None",
                   "size": "Stretch",
                   "altText": "NIKE W AIR MAX 200",
@@ -295,7 +295,7 @@
                 {
                   "type": "Image",
                   "id": "000601e7-86c2-ad01-8a93-b0302cfeb022",
-                  "url": "https://github.com/TheAlphamerc/flutter_ecommerce_app/raw/master/assets/small_tilt_shoe_3.png",
+                  "url": "https://email-checkout.herokuapp.com/assets/small_tilt_shoe_3.png",
                   "spacing": "None",
                   "size": "Stretch",
                   "altText": "NIKE AIR MAX 97",
@@ -421,7 +421,7 @@
                 {
                   "type": "Image",
                   "id": "592bf5be-613f-0a59-37dd-7f081d4b54ce",
-                  "url": "https://github.com/TheAlphamerc/flutter_ecommerce_app/raw/master/assets/small_tilt_shoe_2.png",
+                  "url": "https://email-checkout.herokuapp.com/assets/small_tilt_shoe_2.png",
                   "spacing": "None",
                   "size": "Medium",
                   "altText": "NIKE AIR MAX 260",
