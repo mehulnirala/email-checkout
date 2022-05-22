@@ -81,7 +81,7 @@ const ResponsiveAppBar = () => {
             <Avatar
               sx={{ mr: 1 }}
               alt="Pegasus"
-              src="https://pngimg.com/uploads/pegasus/pegasus_PNG13.png"
+              src="/assets/Pega.png"
             />
             <Box>
               <Typography

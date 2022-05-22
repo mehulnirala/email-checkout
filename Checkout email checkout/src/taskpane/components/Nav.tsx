@@ -83,6 +83,9 @@ export default function Nav(props: any) {
 
   const [activeStep, setActiveStep] = React.useState(0);
 
+  const selectedItems = orderDetails.filter((e) => e.selected);
+  const numItems = selectedItems.length > 0 && activeStep === 0 ? ` (${selectedItems.length} item${selectedItems.length>1?'s':''})`: '';
+
   const totalSteps = () => {
     return steps.length;
   };
@@ -93,6 +96,9 @@ export default function Nav(props: any) {
 
   const handleNext = () => {
     const newActiveStep = Math.min(activeStep + 1, totalSteps());
+    if(newActiveStep === 2 && !selectedItems.length){
+      return;
+    }
     setActiveStep(newActiveStep);
   };
 
@@ -110,8 +116,6 @@ export default function Nav(props: any) {
     <Summary orderDetails={orderDetails.filter((e) => e.selected)} />
   ];
   
-  const selected = orderDetails.filter((e) => e.selected).length;
-  const numItems = selected > 0 && activeStep === 0 ? ` (${selected} item${selected>1?'s':''})`: '';
   return (
     <Box>
       <Box>
