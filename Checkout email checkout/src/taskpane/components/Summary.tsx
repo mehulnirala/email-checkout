@@ -11,7 +11,7 @@ const Img = styled("img")({
   margin: "auto",
   display: "block",
   maxWidth: "100%",
-  maxHeight: "100%"
+  maxHeight: "100%",
 });
 
 function Item(props: any) {
@@ -23,29 +23,18 @@ function Item(props: any) {
           paddingTop: 1,
           width: 420,
           margin: "auto",
-          backgroundColor: (theme) =>
-            theme.palette.mode === "dark" ? "#1A2027" : "#fff"
+          backgroundColor: (theme) => (theme.palette.mode === "dark" ? "#1A2027" : "#fff"),
         }}
       >
         <Grid container spacing={0}>
           <Grid item>
-            <Img
-              sx={{ width: 100, height: 100 }}
-              alt="complex"
-              src={props.url}
-            />
+            <Img sx={{ width: 100, height: 100 }} alt="complex" src={props.url} />
           </Grid>
           <Grid item xs>
             <Typography variant="subtitle1" component="div">
               {props.name}
             </Typography>
-            <Rating
-              name="read-only"
-              value={4.5}
-              precision={0.5}
-              readOnly
-              size="small"
-            />
+            <Rating name="read-only" value={4.5} precision={0.5} readOnly size="small" />
             <Typography variant="subtitle2" component="div">
               <b style={{ fontSize: "16px" }}>₹ {props.price}</b>{" "}
             </Typography>

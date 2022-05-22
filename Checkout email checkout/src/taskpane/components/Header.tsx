@@ -15,12 +15,8 @@ const pages = ["Products", "Pricing", "Blog"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
-    null
-  );
+  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -57,17 +53,17 @@ const ResponsiveAppBar = () => {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
-                horizontal: "left"
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
                 vertical: "top",
-                horizontal: "left"
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseUserMenu}
               sx={{
-                display: { xs: "block", md: "none" }
+                display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
@@ -78,11 +74,7 @@ const ResponsiveAppBar = () => {
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: "flex" }}>
-            <Avatar
-              sx={{ mr: 1 }}
-              alt="Pegasus"
-              src="/assets/Pega.png"
-            />
+            <Avatar sx={{ mr: 1 }} alt="Pegasus" src="/assets/Pega.png" />
             <Box>
               <Typography
                 variant="h5"
@@ -98,7 +90,7 @@ const ResponsiveAppBar = () => {
                   letterSpacing: ".1rem",
                   color: "inherit",
                   textDecoration: "none",
-                  mb: -1
+                  mb: -1,
                 }}
               >
                 Pegasus

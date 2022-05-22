@@ -11,8 +11,7 @@ export interface AppProps {
   data: Object;
 }
 
-export interface AppState {
-}
+export interface AppState {}
 
 export default class App extends React.Component<AppProps, AppState> {
   constructor(props, context) {
@@ -63,7 +62,7 @@ export default class App extends React.Component<AppProps, AppState> {
     return (
       <div className="ms-welcome">
         <Header />
-        <Nav data={this.props.data}/>
+        <Nav data={this.props.data} />
       </div>
     );
   }

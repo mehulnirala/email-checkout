@@ -20,24 +20,24 @@ const customIcons: {
 } = {
   1: {
     icon: <SentimentVeryDissatisfiedIcon />,
-    label: "Very Dissatisfied"
+    label: "Very Dissatisfied",
   },
   2: {
     icon: <SentimentDissatisfiedIcon />,
-    label: "Dissatisfied"
+    label: "Dissatisfied",
   },
   3: {
     icon: <SentimentSatisfiedIcon />,
-    label: "Neutral"
+    label: "Neutral",
   },
   4: {
     icon: <SentimentSatisfiedAltIcon />,
-    label: "Satisfied"
+    label: "Satisfied",
   },
   5: {
     icon: <SentimentVerySatisfiedIcon />,
-    label: "Very Satisfied"
-  }
+    label: "Very Satisfied",
+  },
 };
 
 function IconContainer(props: IconContainerProps) {
@@ -57,7 +57,7 @@ export default function RadioGroupRating() {
       sx={{
         width: 500,
         maxWidth: "100%",
-        p: 5
+        p: 5,
       }}
       noValidate
       autoComplete="off"

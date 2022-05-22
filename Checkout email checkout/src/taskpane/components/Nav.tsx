@@ -1,9 +1,7 @@
 import Check from "@mui/icons-material/Check";
 import { Box, Button } from "@mui/material";
 import Step from "@mui/material/Step";
-import StepConnector, {
-  stepConnectorClasses
-} from "@mui/material/StepConnector";
+import StepConnector, { stepConnectorClasses } from "@mui/material/StepConnector";
 import { StepIconProps } from "@mui/material/StepIcon";
 import StepLabel from "@mui/material/StepLabel";
 import Stepper from "@mui/material/Stepper";
@@ -20,59 +18,52 @@ const QontoConnector = styled(StepConnector)(({ theme }) => ({
   [`&.${stepConnectorClasses.alternativeLabel}`]: {
     top: 10,
     left: "calc(-50% + 16px)",
-    right: "calc(50% + 16px)"
+    right: "calc(50% + 16px)",
   },
   [`&.${stepConnectorClasses.active}`]: {
     [`& .${stepConnectorClasses.line}`]: {
-      borderColor: "#784af4"
-    }
+      borderColor: "#784af4",
+    },
   },
   [`&.${stepConnectorClasses.completed}`]: {
     [`& .${stepConnectorClasses.line}`]: {
-      borderColor: "#784af4"
-    }
+      borderColor: "#784af4",
+    },
   },
   [`& .${stepConnectorClasses.line}`]: {
-    borderColor:
-      theme.palette.mode === "dark" ? theme.palette.grey[800] : "#eaeaf0",
+    borderColor: theme.palette.mode === "dark" ? theme.palette.grey[800] : "#eaeaf0",
     borderTopWidth: 3,
-    borderRadius: 1
-  }
+    borderRadius: 1,
+  },
 }));
 
-const QontoStepIconRoot = styled("div")<{ ownerState: { active?: boolean } }>(
-  ({ theme, ownerState }) => ({
-    color: theme.palette.mode === "dark" ? theme.palette.grey[700] : "#eaeaf0",
-    display: "flex",
-    height: 22,
-    alignItems: "center",
-    ...(ownerState.active && {
-      color: "#784af4"
-    }),
-    "& .QontoStepIcon-completedIcon": {
-      color: "#784af4",
-      zIndex: 1,
-      fontSize: 18
-    },
-    "& .QontoStepIcon-circle": {
-      width: 8,
-      height: 8,
-      borderRadius: "50%",
-      backgroundColor: "currentColor"
-    }
-  })
-);
+const QontoStepIconRoot = styled("div")<{ ownerState: { active?: boolean } }>(({ theme, ownerState }) => ({
+  color: theme.palette.mode === "dark" ? theme.palette.grey[700] : "#eaeaf0",
+  display: "flex",
+  height: 22,
+  alignItems: "center",
+  ...(ownerState.active && {
+    color: "#784af4",
+  }),
+  "& .QontoStepIcon-completedIcon": {
+    color: "#784af4",
+    zIndex: 1,
+    fontSize: 18,
+  },
+  "& .QontoStepIcon-circle": {
+    width: 8,
+    height: 8,
+    borderRadius: "50%",
+    backgroundColor: "currentColor",
+  },
+}));
 
 function QontoStepIcon(props: StepIconProps) {
   const { active, completed, className } = props;
 
   return (
     <QontoStepIconRoot ownerState={{ active }} className={className}>
-      {completed ? (
-        <Check className="QontoStepIcon-completedIcon" />
-      ) : (
-        <div className="QontoStepIcon-circle" />
-      )}
+      {completed ? <Check className="QontoStepIcon-completedIcon" /> : <div className="QontoStepIcon-circle" />}
     </QontoStepIconRoot>
   );
 }
@@ -84,7 +75,10 @@ export default function Nav(props: any) {
   const [activeStep, setActiveStep] = React.useState(0);
 
   const selectedItems = orderDetails.filter((e) => e.selected);
-  const numItems = selectedItems.length > 0 && activeStep === 0 ? ` (${selectedItems.length} item${selectedItems.length>1?'s':''})`: '';
+  const numItems =
+    selectedItems.length > 0 && activeStep === 0
+      ? ` (${selectedItems.length} item${selectedItems.length > 1 ? "s" : ""})`
+      : "";
 
   const totalSteps = () => {
     return steps.length;
@@ -96,7 +90,7 @@ export default function Nav(props: any) {
 
   const handleNext = () => {
     const newActiveStep = Math.min(activeStep + 1, totalSteps());
-    if(newActiveStep === 2 && !selectedItems.length){
+    if (newActiveStep === 2 && !selectedItems.length) {
       return;
     }
     setActiveStep(newActiveStep);
@@ -111,11 +105,11 @@ export default function Nav(props: any) {
   };
 
   const components = [
-    <ItemsList setOrderDetails={setOrderDetails} orderDetails={orderDetails}/>,
-    <Checkout orderDetails={orderDetails.filter((e) => e.selected)} goToNext={handleNext}/>,
-    <Summary orderDetails={orderDetails.filter((e) => e.selected)} />
+    <ItemsList setOrderDetails={setOrderDetails} orderDetails={orderDetails} />,
+    <Checkout orderDetails={orderDetails.filter((e) => e.selected)} goToNext={handleNext} />,
+    <Summary orderDetails={orderDetails.filter((e) => e.selected)} />,
   ];
-  
+
   return (
     <Box>
       <Box>
@@ -123,18 +117,22 @@ export default function Nav(props: any) {
           <Rating />
         ) : (
           <React.Fragment>
-            {activeStep===0?<Box
-              sx={{
-                width: "100%",
-                height: "100px",
-                position: "absolute",
-                backgroundColor: "primary.main",
-                "&:hover": {
+            {activeStep === 0 ? (
+              <Box
+                sx={{
+                  width: "100%",
+                  height: "100px",
+                  position: "absolute",
                   backgroundColor: "primary.main",
-                  opacity: [0.9, 0.8, 0.7]
-                }
-              }}
-            ></Box> : ""}
+                  "&:hover": {
+                    backgroundColor: "primary.main",
+                    opacity: [0.9, 0.8, 0.7],
+                  },
+                }}
+              ></Box>
+            ) : (
+              ""
+            )}
             {components[activeStep]}
           </React.Fragment>
         )}
@@ -159,18 +157,11 @@ export default function Nav(props: any) {
                 {activeStep >= totalSteps() - 1 ? "Finish" : `Next ${numItems}`}
               </Button>
             </Box>
-            <br/> <br /> <br />
-            <Stepper
-              alternativeLabel
-              activeStep={activeStep}
-              connector={<QontoConnector />}
-            >
+            <br /> <br /> <br />
+            <Stepper alternativeLabel activeStep={activeStep} connector={<QontoConnector />}>
               {steps.map((label, index) => (
                 <Step key={label} completed={index < activeStep}>
-                  <StepLabel
-                    StepIconComponent={QontoStepIcon}
-                    onClick={handleStep(index)}
-                  >
+                  <StepLabel StepIconComponent={QontoStepIcon} onClick={handleStep(index)}>
                     {label}
                   </StepLabel>
                 </Step>
