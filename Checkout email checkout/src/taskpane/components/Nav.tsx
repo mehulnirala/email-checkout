@@ -153,7 +153,7 @@ export default function Nav(props: any) {
                 Back
               </Button>
               <Box sx={{ flex: "1 1 auto" }} />
-              <Button onClick={handleNext} sx={{ mr: 1 }} variant="contained">
+              <Button onClick={handleNext} sx={{ mr: 1 }} variant="contained" disabled={activeStep===1}>
                 {activeStep >= totalSteps() - 1 ? "Finish" : `Next ${numItems}`}
               </Button>
             </Box>

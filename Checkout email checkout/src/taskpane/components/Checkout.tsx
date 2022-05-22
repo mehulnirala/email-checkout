@@ -17,9 +17,7 @@ export default function Checkout(props: any) {
           checkout.displayCheckout();
           setLoading(false);
           addEventListeners(
-            () => {
-              props.goToNext();
-            },
+            () => setTimeout(()=>props.goToNext(), 2000),
             () => {}
           );
         })
