@@ -24,7 +24,7 @@ export async function openCheckout(data: any) {
       : "cus_3196e7d011322b73f31adfeb673b23fd",
   };
   const result: any = await createCheckout(checkoutData);
-  cache[key] = result.id;
+  // cache[key] = result.id;
   return result.id;
 }
 
